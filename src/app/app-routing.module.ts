@@ -7,6 +7,7 @@ import {NopagefoundComponent} from "./nopagefound/nopagefound.component";
 import {AuthRoutingModule} from "./auth/auth.routing";
 
 const routes: Routes = [
+  { path: '', redirectTo: '/forum', pathMatch: 'full' },
   { path: '**', component: NopagefoundComponent },
 ];
 

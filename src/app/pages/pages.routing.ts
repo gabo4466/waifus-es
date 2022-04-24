@@ -6,12 +6,11 @@ import {ProfileComponent} from "./profile/profile.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'forum',
     component: PagesComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent },
+      { path: '', component: DashboardComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: '', redirectTo: '/dashboard' , pathMatch: 'full' },
     ]
   },
 ];
