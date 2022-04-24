@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
+  public theme: string = 'lightTheme';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  themeChanged(value: string){
+    this.theme = value;
   }
 
 }

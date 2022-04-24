@@ -1,8 +1,4 @@
 .wrapper{
-  color: rgba(248,249,250,255);
-  background-color: rgba(52,58,64,255);
-  display: grid;
-  height: 100vh;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 100px 1fr auto;
   grid-template-areas:

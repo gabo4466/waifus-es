@@ -1,5 +1,8 @@
-<div class="wrapper">
-  <app-navbar></app-navbar>
+<div class="wrapper"
+     [ngClass]="theme">
+  <app-navbar
+    (themeOutput)="themeChanged($event)"
+    [currentTheme]="theme"></app-navbar>
   <section>
     <router-outlet></router-outlet>
   </section>
