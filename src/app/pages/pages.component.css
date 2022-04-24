@@ -7,10 +7,3 @@
         "footer    footer"
 }
 
-section{
-  grid-area: section;
-}
-
-app-footer{
-  grid-area: footer;
-}

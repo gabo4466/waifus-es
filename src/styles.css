@@ -2,6 +2,11 @@
 .wrapper{
   display: grid;
   height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+        "section"
+        "footer"
 }
 
 .darkTheme{
@@ -12,4 +17,12 @@
 .lightTheme{
   color: rgba(52,58,64,255);
   background-color: rgba(248,249,250,255);
+}
+
+app-footer{
+  grid-area: footer;
+}
+
+section{
+  grid-area: section;
 }
