@@ -19,6 +19,14 @@
   background-color: rgba(248,249,250,255);
 }
 
+.pink{
+  background-color: rgba(222,92,157,255);
+}
+
+.cherry{
+  background-color: rgb(233, 30, 99);
+}
+
 app-footer{
   grid-area: footer;
 }
