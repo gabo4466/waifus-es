@@ -1,0 +1,13 @@
+footer{
+  display: block;
+  border-top: 1px solid #FFFFFF3D;
+  background: rgba(73,80,87,255);
+  width: 100%;
+  padding: 15px 0;
+
+}
+footer p{
+  text-align: center;
+  margin: 0;
+  color: #7C808C;
+}

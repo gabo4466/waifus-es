@@ -1,0 +1,9 @@
+.wrapper{
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 1fr auto;
+  grid-template-areas:
+        ".    ."
+        "section    section"
+        "footer    footer"
+}
+
