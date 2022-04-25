@@ -28,7 +28,6 @@ export class NavbarComponent {
       this.themeOutput.emit("lightTheme");
     }else{
       this.themeOutput.emit("darkTheme");
-
     }
   }
 
