@@ -1,3 +1,6 @@
 .navbar-custom{
   background-color: rgba(222,92,157,255);
 }
+nav{
+  box-shadow: 0 2px 4px 0 rgba(9, 9, 9, 0.2);
+}
