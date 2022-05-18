@@ -2,11 +2,12 @@
   <div class="mb-3" >
     <label for="InputEmail1" class="form-label">Correo electrónico</label>
     <input
-      type="email"
+      type="text"
       class="form-control"
       id="InputEmail1"
       name="email"
-      ngModel
+      email
+      [(ngModel)]="user._email"
       aria-describedby="emailHelp"
       required>
     <div id="emailHelp" class="form-text">Nunca compartiremos tu correo electrónico.</div>
@@ -18,7 +19,7 @@
       class="form-control"
       id="InputNickname1"
       name="nickname"
-      ngModel
+      [(ngModel)]="user._nickname"
       aria-describedby="nicknameHelp"
       required>
     <div id="nicknameHelp" class="form-text">Elije un usuario original.</div>
@@ -30,29 +31,29 @@
       class="form-control"
       id="InputName1"
       name="name"
-      ngModel
+      [(ngModel)]="user._name"
       aria-describedby="nameHelp"
       required>
     <div id="nameHelp" class="form-text">Nombre y apellidos.</div>
   </div>
   <div class="mb-3">
     <label for="InputPassword1" class="form-label">Contraseña</label>
-    <input type="password" class="form-control" id="InputPassword1" required>
+    <input type="password" class="form-control" id="InputPassword1" required [(ngModel)]="user._password">
   </div>
   <div class="mb-3">
     <label for="InputPassword2" class="form-label">Repetir Contraseña</label>
-    <input type="password" class="form-control" id="InputPassword2" required>
+    <input type="password" class="form-control" id="InputPassword2" required [(ngModel)]="user._pass">
   </div>
   <div class="mb-3">
     <label for="Date1" class="form-label">Introduce tu fecha de nacimiento</label>
-    <input type="date" class="form-control" id="Date1" required>
+    <input type="date" class="form-control" id="Date1" required [(ngModel)]="user._birthday">
   </div>
   <div class="mb-3 form-check">
-    <input style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)" type="checkbox" class="form-check-input" id="Check1">
+    <input style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)" type="checkbox" class="form-check-input" id="Check1" [(ngModel)]="user._adult_content">
     <label class="form-check-label" for="Check1">Deseo ver contenido adulto</label>
   </div>
   <div class="mb-3 form-check">
-    <input style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)" type="checkbox" class="form-check-input" id="Check2" required>
+    <input style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)" type="checkbox" class="form-check-input" id="Check2" required [(ngModel)]="user._terms">
     <label class="form-check-label" for="Check2">Acepto los términos y condiciones de uso</label>
   </div>
   <button type="submit" class="btn btn-primary" style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)">Enviar</button>
