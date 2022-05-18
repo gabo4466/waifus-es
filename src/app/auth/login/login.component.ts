@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
+import {UserModel} from "../../model/user.model";
+import {Constants} from "../../common/constants";
 
 @Component({
   selector: 'app-login',
@@ -7,14 +10,21 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  private url = Constants.apiURL;
+  public user:UserModel;
+  constructor( private http: HttpClient ) {
+    this.user = new UserModel();
+    this.url += "login";
   }
 
-  registerUser(form : NgForm){
-    console.log(form);
+  ngOnInit(): void {
+
+  }
+
+  logInUser(form : NgForm){
+    this.http.post<Object>(this.url, JSON.stringify(this.user).replace(/[/_/]/g, '')).subscribe( (resp:any) => {
+
+    } );
   }
 
 }
