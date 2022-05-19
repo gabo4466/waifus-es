@@ -46,14 +46,15 @@
   </div>
   <div class="mb-3">
     <label for="Date1" class="form-label">Introduce tu fecha de nacimiento</label>
-    <input name="birthday" type="date" class="form-control" id="Date1" [(ngModel)] ="user._birthday">
+    <input name="birthday" type="date" class="form-control" id="Date1" required [(ngModel)] ="user._date">
+
   </div>
   <div class="mb-3 form-check">
     <input name="adultContent" style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)" type="checkbox" class="form-check-input" id="Check1" [(ngModel)] ="user._adultContent">
     <label class="form-check-label" for="Check1">Deseo ver contenido adulto</label>
   </div>
   <div class="mb-3 form-check">
-    <input name="term" style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)" type="checkbox" class="form-check-input" id="Check2" [(ngModel)] ="user._terms">
+    <input name="term" style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)" type="checkbox" class="form-check-input" id="Check2" required [(ngModel)] ="user._terms">
     <label class="form-check-label" for="Check2">Acepto los términos y condiciones de uso</label>
   </div>
   <button type="submit" class="btn btn-primary" style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)">Enviar</button>

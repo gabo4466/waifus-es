@@ -36,10 +36,12 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser(form : NgForm){
-    console.log(this.formatDateee(this.user._birthday));
-    this.http.post<Object>(this.url, JSON.stringify(this.user).replace(/[/_/]/g, '')).subscribe( (resp:any) => {
-      console.log(resp);
-    } );
+    if (form.valid){
+      this.user._birthday = this.formatDateee(this.user._date);
+      this.http.post<Object>(this.url, JSON.stringify(this.user).replace(/[/_/]/g, '')).subscribe( (resp:any) => {
+        console.log(resp);
+      } );
+    }
   }
 
 }
