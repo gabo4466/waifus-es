@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {UserModel} from "../../model/user.model";
 import {Constants} from "../../common/constants";
+import Swal from "sweetalert2";
+
 
 @Component({
   selector: 'app-login',
@@ -22,9 +24,26 @@ export class LoginComponent implements OnInit {
   }
 
   logInUser(form : NgForm){
-    this.http.post<Object>(this.url, JSON.stringify(this.user).replace(/[/_/]/g, '')).subscribe( (resp:any) => {
+    console.log(form);
 
-    } );
+    if (form.valid){
+      this.http.post<Object>(this.url, JSON.stringify(this.user).replace(/[/_/]/g, '')).subscribe( (resp:any) => {
+        Swal.fire({
+          title:'Tqm',
+          text: 'Bello',
+          icon: "success",
+          confirmButtonText: 'Ok'
+        });
+      }, (resp:HttpErrorResponse) => {
+        console.log(resp)
+        Swal.fire({
+          title:'Hijo de puta',
+          text: `${resp.error['message']}`,
+          icon: "error",
+          confirmButtonText: 'Ok'
+        });
+      });
+    }
   }
 
 }

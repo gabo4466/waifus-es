@@ -1,10 +1,11 @@
 <form (ngSubmit)="logInUser(formLogin)" class="loginForm" #formLogin="ngForm">
+  <span *ngIf="formLogin.submitted && formLogin.controls['email'].errors" class="text-danger">* El email es obligatorio</span>
   <div class="mb-3" >
-    <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+    <label for="inputEmail" class="form-label">Correo electrónico</label>
     <input
       type="text"
       class="form-control"
-      id="exampleInputEmail1"
+      id="inputEmail"
       name="email"
       email
       required
@@ -12,12 +13,14 @@
       aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">Nunca compartiremos tu correo electrónico.</div>
   </div>
+  <span *ngIf="formLogin.submitted && formLogin.controls['password'].errors" class="text-danger animated fadeIn">* La contraseña es obligatoria</span>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+    <label for="inputPassword" class="form-label">Contraseña</label>
     <input
       type="password"
       class="form-control"
-      id="exampleInputPassword1"
+      id="inputPassword"
+      minlength="5"
       name="password"
       [(ngModel)]="user._password">
   </div>
