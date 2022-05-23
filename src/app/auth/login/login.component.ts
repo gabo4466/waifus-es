@@ -28,17 +28,14 @@ export class LoginComponent implements OnInit {
 
     if (form.valid){
       this.http.post<Object>(this.url, JSON.stringify(this.user).replace(/[/_/]/g, '')).subscribe( (resp:any) => {
-        Swal.fire({
-          title:'Tqm',
-          text: 'Bello',
-          icon: "success",
-          confirmButtonText: 'Ok'
-        });
+        localStorage.setItem("access", resp['access']);
+
+
+
       }, (resp:HttpErrorResponse) => {
-        console.log(resp)
         Swal.fire({
-          title:'Hijo de puta',
-          text: `${resp.error['message']}`,
+          title:`${resp.error['message']}`,
+          html: ``,
           icon: "error",
           confirmButtonText: 'Ok'
         });
