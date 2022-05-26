@@ -3,7 +3,6 @@ import {NgForm} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {UserModel} from "../../model/user.model";
 import {Constants} from "../../common/constants";
-import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-register',
@@ -21,23 +20,21 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  formatDateee(date:Date) {
+  formatDateYYYYMMDD(date:Date) {
     var d = new Date(date),
       month = '' + (d.getMonth() + 1),
       day = '' + d.getDate(),
       year = d.getFullYear();
-
     if (month.length < 2)
       month = '0' + month;
     if (day.length < 2)
       day = '0' + day;
-
     return [year, month, day].join('');
   }
 
   registerUser(form : NgForm){
     if (form.valid){
-      this.user._birthday = this.formatDateee(this.user._date);
+      this.user._birthday = this.formatDateYYYYMMDD(this.user._date);
       this.http.post<Object>(this.url, JSON.stringify(this.user).replace(/[/_/]/g, '')).subscribe( (resp:any) => {
         console.log(resp);
       } );
