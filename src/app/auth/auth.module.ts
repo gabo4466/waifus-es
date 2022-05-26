@@ -7,6 +7,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import { AuthComponent } from './auth.component';
 import { CodeAuthComponent } from './code-auth/code-auth.component';
+import { OtpAuthComponent } from './otp-auth/otp-auth.component';
 
 
 
@@ -17,6 +18,7 @@ import { CodeAuthComponent } from './code-auth/code-auth.component';
     RegisterComponent,
     AuthComponent,
     CodeAuthComponent,
+    OtpAuthComponent,
   ],
   exports: [
     LoginComponent,

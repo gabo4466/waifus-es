@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {AuthComponent} from "./auth.component";
-import {CodeAuthComponent} from "./code-auth/code-auth.component";
+import {OtpAuthComponent} from "./otp-auth/otp-auth.component";
 
 const routes: Routes = [
 
@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'code', component: CodeAuthComponent },
+      { path: 'code', component: OtpAuthComponent },
     ]
   },
 ];
