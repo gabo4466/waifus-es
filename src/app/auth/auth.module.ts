@@ -6,6 +6,7 @@ import {FormsModule} from "@angular/forms";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import { AuthComponent } from './auth.component';
+import { CodeAuthComponent } from './code-auth/code-auth.component';
 
 
 
@@ -15,6 +16,7 @@ import { AuthComponent } from './auth.component';
     LoginComponent,
     RegisterComponent,
     AuthComponent,
+    CodeAuthComponent,
   ],
   exports: [
     LoginComponent,
