@@ -1,32 +1,38 @@
 <form (ngSubmit)="logInUser(formLogin)" class="loginForm" #formLogin="ngForm">
+
   <div class="mb-3" >
-    <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+    <label for="inputEmail" class="form-label">Correo electrónico</label>
     <input
       type="text"
       class="form-control"
-      id="exampleInputEmail1"
+      id="inputEmail"
       name="email"
       email
       required
       [(ngModel)]="user._email"
       aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">Nunca compartiremos tu correo electrónico.</div>
+    <div id="emailHelp" class="form-text helper" style="display: flex">
+      Nunca compartiremos tu correo electrónico.
+      <span *ngIf="formLogin.submitted && formLogin.controls['email'].errors" class="text-danger">* El email es obligatorio</span>
+    </div>
   </div>
+
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+    <label for="inputPassword" class="form-label">Contraseña</label>
     <input
       type="password"
       class="form-control"
-      id="exampleInputPassword1"
+      id="inputPassword"
+      minlength="5"
+      required
       name="password"
-      [(ngModel)]="user._password">
+      [(ngModel)]="user._password"
+      aria-describedby="passwordHelp">
+    <div id="passwordHelp" class="form-text helper">
+      <span *ngIf="formLogin.submitted && formLogin.controls['password'].errors" class="text-danger">* La contraseña es obligatoria</span>
+    </div>
   </div>
-  <!--
-  <div class="mb-3 form-check">
-    <input style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)" type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Acepto los términos y condiciones de uso</label>
-  </div>
-  -->
+
   <button type="submit" class="btn btn-primary" style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)">Enviar</button>
 </form>
 

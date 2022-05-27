@@ -1,7 +1,13 @@
 .loginForm{
-  width: min(100% - 2rem, 800px);
+  width: min(100% - 2rem, 400px);
   margin-inline: auto;
-  border: rgba(222,92,157,255) 1px solid;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
   padding: 30px;
   border-radius: 10px
+}
+.helper{
+  display: flex;
+  flex-flow: wrap column;
 }
