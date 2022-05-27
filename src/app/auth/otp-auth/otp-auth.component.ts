@@ -25,7 +25,7 @@ export class OtpAuthComponent implements OnInit {
     let param = new HttpParams();
     this.route.params.subscribe((params: Params) => param.set('idUser', params['id']));
     this.http.get(this.url, { params : param, observe: 'response' }).subscribe((resp:any)=>{
-      
+      this.jwtOtp = resp.body['activationOTP'];
     });
   }
 
