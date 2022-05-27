@@ -5,5 +5,9 @@
   padding: 30px;
   border-radius: 10px
 }
+.helper{
+  display: flex;
+  flex-flow: column wrap;
+}
 
 

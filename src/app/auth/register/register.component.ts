@@ -3,6 +3,7 @@ import {NgForm} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {UserModel} from "../../model/user.model";
 import {Constants} from "../../common/constants";
+import {ValidatorsService} from "../../services/validators.service";
 
 @Component({
   selector: 'app-register',
@@ -12,9 +13,14 @@ import {Constants} from "../../common/constants";
 export class RegisterComponent implements OnInit {
   private url = Constants.apiURL;
   public user:UserModel;
-  constructor( private http: HttpClient ) {
+  public passwordMatch:boolean;
+  public passwordCheck:boolean;
+  constructor( private http: HttpClient,
+               private validator: ValidatorsService) {
     this.user = new UserModel();
     this.url += "register";
+    this.passwordMatch = true;
+    this.passwordCheck = true;
   }
 
   ngOnInit(): void {
@@ -32,18 +38,21 @@ export class RegisterComponent implements OnInit {
     return [year, month, day].join('');
   }
 
-  patternCheck(regex: RegExp, control : string): boolean{
-    return regex.test(control);
-  }
-
-  passwordCheck(password : string, passRep : string): boolean{
-    let result : boolean;
-    result = password == passRep;
-    return result;
-  }
-
   registerUser(form : NgForm){
-    if (form.valid){
+
+    if(this.validator.passwordCheck(this.user._password, this.user._repPass)){
+      this.passwordMatch = true;
+    }else{
+      this.passwordMatch = false;
+    }
+
+    if(this.validator.patternCheck(/[A-Za-z\d]/, this.user._password)){
+      this.passwordCheck = true;
+    }else {
+      this.passwordCheck = false;
+    }
+
+    if (form.valid && this.passwordMatch && this.passwordCheck){
       this.user._birthday = this.formatDateYYYYMMDD(this.user._date);
       this.http.post<Object>(this.url, JSON.stringify(this.user).replace(/[/_/]/g, '')).subscribe( (resp:any) => {
         console.log(resp);

@@ -1,10 +1,10 @@
 export class UserModel {
-  public _email:String;
-  public _password:String;
-  public _nickname:String;
-  public _name:String;
-  public _repPass:String;
-  public _birthday:String;
+  public _email:string;
+  public _password:string;
+  public _nickname:string;
+  public _name:string;
+  public _repPass:string;
+  public _birthday:string;
   public _adultContent:boolean;
   public _terms:boolean;
   public _date:Date;
