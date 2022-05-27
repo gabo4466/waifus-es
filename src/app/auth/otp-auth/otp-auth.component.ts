@@ -12,17 +12,21 @@ export class OtpAuthComponent implements OnInit {
 
   //public otp:string;
   private url:string = Constants.apiURL;
+  private jwtOtp:string;
 
   constructor( private http: HttpClient,
                private route: ActivatedRoute) {
     this.url += "activationOTP";
+    this.jwtOtp = '';
 
   }
 
   ngOnInit(): void {
     let param = new HttpParams();
     this.route.params.subscribe((params: Params) => param.set('idUser', params['id']));
-    this.http.get(this.url, { params : param });
+    this.http.get(this.url, { params : param, observe: 'response' }).subscribe((resp:any)=>{
+      
+    });
   }
 
 }
