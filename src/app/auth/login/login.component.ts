@@ -30,11 +30,12 @@ export class LoginComponent implements OnInit {
 
     if (form.valid){
       this.http.post<Object>(this.url, JSON.stringify(this.user).replace(/[/_/]/g, ''), {observe: 'response'}).subscribe( (resp:any) => {
-        if (resp.status){
+        if (resp.status === 200){
           localStorage.setItem("access", resp.body['access']);
           this.router.navigate(['/forum']);
         }else if (resp.status === 202){
-
+          console.log(resp.body['user']);
+          this.router.navigate(['/auth/code', resp.body['user']['idUser']]);
         }
 
       }, (resp:HttpErrorResponse) => {

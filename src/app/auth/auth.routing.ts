@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'code', component: OtpAuthComponent },
+      { path: 'code/:id', component: OtpAuthComponent },
     ]
   },
 ];
