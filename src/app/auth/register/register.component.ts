@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {UserModel} from "../../model/user.model";
@@ -30,6 +30,16 @@ export class RegisterComponent implements OnInit {
     if (day.length < 2)
       day = '0' + day;
     return [year, month, day].join('');
+  }
+
+  patternCheck(regex: RegExp, control : string): boolean{
+    return regex.test(control);
+  }
+
+  passwordCheck(password : string, passRep : string): boolean{
+    let result : boolean;
+    result = password == passRep;
+    return result;
   }
 
   registerUser(form : NgForm){
