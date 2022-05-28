@@ -21,7 +21,9 @@
       name="nickname"
       [(ngModel)]="user._nickname"
       aria-describedby="nicknameHelp"
-      required>
+      required
+      minlength="4"
+      maxlength="20">
     <div id="nicknameHelp" class="form-text">Elije un usuario original.</div>
   </div>
   <div class="mb-3">
