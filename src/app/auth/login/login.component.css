@@ -1,0 +1,13 @@
+.loginForm{
+  width: min(100% - 2rem, 400px);
+  margin-inline: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 10px
+}
+.helper{
+  display: flex;
+  flex-flow: wrap column;
+}
