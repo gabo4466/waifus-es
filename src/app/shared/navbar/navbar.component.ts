@@ -9,7 +9,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class NavbarComponent {
 
-
+  public navBarColor: string = "pink";
   @Input() currentTheme: string = "darkTheme";
   @Output() themeOutput: EventEmitter<string>;
 
@@ -19,7 +19,12 @@ export class NavbarComponent {
   }
 
   changeTheme(){
+
     if (this.currentTheme === "darkTheme"){
+      this.themeOutput.emit("mat-app-background");
+      this.navBarColor = "cherry";
+    }else if (this.currentTheme === "mat-app-background"){
+      this.navBarColor = "pink";
       this.themeOutput.emit("lightTheme");
     }else{
       this.themeOutput.emit("darkTheme");
