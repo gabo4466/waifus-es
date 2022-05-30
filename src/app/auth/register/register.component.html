@@ -24,7 +24,8 @@
       required
       minlength="4"
       maxlength="20">
-    <div id="nicknameHelp" class="form-text">Elije un usuario original.</div>
+    <div id="nicknameHelp" class="form-text helper">Elije un usuario original.
+      <span *ngIf="formRegister.submitted && !nicknameCheck" class="text-danger">* El nickname no es correcto:</span></div>
   </div>
   <div class="mb-3">
     <label for="InputName1" class="form-label">Nombre</label>
@@ -54,7 +55,6 @@
   <div class="mb-3">
     <label for="Date1" class="form-label">Introduce tu fecha de nacimiento</label>
     <input name="birthday" type="date" class="form-control" id="Date1" required [(ngModel)] ="user._date">
-
   </div>
   <div class="mb-3 form-check">
     <input name="adultContent" style="border-color: rgba(222,92,157,255); background-color: rgba(222,92,157,255)" type="checkbox" class="form-check-input" id="Check1" [(ngModel)] ="user._adultContent">

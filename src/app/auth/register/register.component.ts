@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
       this.passwordCheck = false;
     }
 
-    if(this.validator.patternCheck(/[A-Za-z\d\s]/, this.user._nickname)){
+    if(this.validator.patternCheck(/[\w_.\s]/, this.user._nickname)){
       this.nicknameCheck = true;
     }else {
       this.nicknameCheck = false;
@@ -69,5 +69,4 @@ export class RegisterComponent implements OnInit {
       } );
     }
   }
-
 }
